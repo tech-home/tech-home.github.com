@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Swift | Tech Home Blog]]></title>
   <link href="http://tech-home.github.io/blog/categories/swift/atom.xml" rel="self"/>
   <link href="http://tech-home.github.io/"/>
-  <updated>2017-01-29T20:22:26+08:00</updated>
+  <updated>2017-01-29T20:43:35+08:00</updated>
   <id>http://tech-home.github.io/</id>
   <author>
     <name><![CDATA[YZQiang]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Swift]]></title>
-    <link href="http://tech-home.github.io/blog/2016/05/10/title/"/>
+    <link href="http://tech-home.github.io/blog/20160510/"/>
     <updated>2016-05-10T15:53:00+08:00</updated>
-    <id>http://tech-home.github.io/blog/2016/05/10/title</id>
+    <id>http://tech-home.github.io/blog/title</id>
     <content type="html"><![CDATA[<h1>篇章 1.基础部分</h1>
 
 <h2>常量与变量</h2>
