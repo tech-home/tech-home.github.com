@@ -4,10 +4,10 @@
   <title><![CDATA[Tech Home Blog]]></title>
   <link href="http://tech-home.github.io/atom.xml" rel="self"/>
   <link href="http://tech-home.github.io/"/>
-  <updated>2017-01-30T03:29:38+08:00</updated>
+  <updated>2017-01-30T03:44:16+08:00</updated>
   <id>http://tech-home.github.io/</id>
   <author>
-    <name><![CDATA[YZQiang]]></name>
+    <name><![CDATA[Gene]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -39,7 +39,7 @@
 
 <h4>卸载软件</h4>
 
-<blockquote><p><strong><em>adb uninstall -option <packagename></em></strong> <br/>
+<blockquote><p><strong><em>adb uninstall -option &lt; packagename ></em></strong> <br/>
 * -k  保存配置和缓存文件</p></blockquote>
 
 <p>根据指定包名，卸载设备上的软件。</p>
@@ -54,13 +54,13 @@
 
 <h4>查看软件详情</h4>
 
-<blockquote><p><strong><em>adb shell dumpsys package <packagename> -option</em></strong></p></blockquote>
+<blockquote><p><strong><em>adb shell dumpsys package &lt; packagename > -option</em></strong></p></blockquote>
 
 <p>根据指定包名，查看设备上某个包的具体信息。</p>
 
 <h4>清除软件缓存</h4>
 
-<blockquote><p><strong><em>adb shell pm clear <packagename></em></strong></p></blockquote>
+<blockquote><p><strong><em>adb shell pm clear &lt; packagename ></em></strong></p></blockquote>
 
 <p>清空指定软件的应用缓存。</p>
 
@@ -90,7 +90,7 @@
 
 <h4>重启设备</h4>
 
-<blockquote><p><strong><em>adb reboot [bootloader|recovery]</em></strong> <br/>
+<blockquote><p><strong><em>adb reboot [bootloader | recovery]</em></strong> <br/>
 * null 什么都不加直接重启 <br/>
 * bootloader 重启到bootloader引导模式 等同于：adb reboot-bootloader <br/>
 * recovery 重启到recovery刷机模式</p></blockquote>

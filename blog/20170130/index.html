@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
   <title>几个常用的ADB命令 - Tech Home Blog</title>
-  <meta name="author" content="YZQiang">
+  <meta name="author" content="Gene">
 
   
   <meta name="description" content="ADB全称Android Debug Bridge,在android开发中基本算得上是家喻户晓，我们经常会使用这个sdk中的工具来管理我们连接到电脑上的android设备。熟悉、掌握一些基本的adb命令，不仅可以提高我们的逼格，还可以提升我们的开发效率，在这， &hellip;">
@@ -103,7 +103,7 @@
 
 <h4>卸载软件</h4>
 
-<blockquote><p><strong><em>adb uninstall -option <packagename></em></strong> <br/>
+<blockquote><p><strong><em>adb uninstall -option &lt; packagename ></em></strong> <br/>
 * -k  保存配置和缓存文件</p></blockquote>
 
 <p>根据指定包名，卸载设备上的软件。</p>
@@ -118,13 +118,13 @@
 
 <h4>查看软件详情</h4>
 
-<blockquote><p><strong><em>adb shell dumpsys package <packagename> -option</em></strong></p></blockquote>
+<blockquote><p><strong><em>adb shell dumpsys package &lt; packagename > -option</em></strong></p></blockquote>
 
 <p>根据指定包名，查看设备上某个包的具体信息。</p>
 
 <h4>清除软件缓存</h4>
 
-<blockquote><p><strong><em>adb shell pm clear <packagename></em></strong></p></blockquote>
+<blockquote><p><strong><em>adb shell pm clear &lt; packagename ></em></strong></p></blockquote>
 
 <p>清空指定软件的应用缓存。</p>
 
@@ -154,7 +154,7 @@
 
 <h4>重启设备</h4>
 
-<blockquote><p><strong><em>adb reboot [bootloader|recovery]</em></strong> <br/>
+<blockquote><p><strong><em>adb reboot [bootloader | recovery]</em></strong> <br/>
 * null 什么都不加直接重启 <br/>
 * bootloader 重启到bootloader引导模式 等同于：adb reboot-bootloader <br/>
 * recovery 重启到recovery刷机模式</p></blockquote>
@@ -166,7 +166,7 @@
       
   
 
-<span class="byline author vcard">Posted by <span class="fn">YZQiang</span></span>
+<span class="byline author vcard">Posted by <span class="fn">Gene</span></span>
 
       
 
@@ -260,7 +260,7 @@ var duoshuoQuery = {short_name:"Gene"};
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2017 - YZQiang -
+  Copyright &copy; 2017 - Gene -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
