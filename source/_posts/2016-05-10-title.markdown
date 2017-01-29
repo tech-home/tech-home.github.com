@@ -1,8 +1,14 @@
 ---
 layout: post
-title: "title"
+title: "Swift"
 date: 2016-05-10 15:53:00 +0800
 comments: true
-categories: 
+categories: Swift
 ---
-###程序员
+#篇章 1.基础部分 
+##常量与变量
+
+
+
+     
+     
