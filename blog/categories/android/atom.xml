@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android | Tech Home Blog]]></title>
   <link href="http://tech-home.github.io/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://tech-home.github.io/"/>
-  <updated>2017-02-02T04:56:52+08:00</updated>
+  <updated>2017-02-02T05:01:38+08:00</updated>
   <id>http://tech-home.github.io/</id>
   <author>
     <name><![CDATA[Gene]]></name>
@@ -44,7 +44,7 @@
 
 <h2>不同屏幕适配</h2>
 
-<p><img src="../images/dp.png" alt="设备ppi" /> <br/>
+<p><img src="../../images/dp.png" alt="设备ppi" /> <br/>
 在mdpi的设备上，1dp＝1px，以mdpi为标准，不同屏幕的密度值比为：ldpi : mdpi : hdpi : xhdpi : xxhdpi = 0.75 : 1 : 1.5 : 2 : 3，UI作图时为了兼顾ios端，一般都会以ios6（750 ＊ 1334）为基础作图。编程实现时，会在其基础上除2，等到最终转化后的dp值。 <br/>
 <strong>除去低分辨率的屏幕（120dpi），所有元素都必须是可以被4整除的元件，在android界面中最小的间距为8dp</strong>。</p>
 
