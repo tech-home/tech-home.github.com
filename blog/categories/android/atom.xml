@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android | Tech Home Blog]]></title>
   <link href="http://tech-home.github.io/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://tech-home.github.io/"/>
-  <updated>2017-01-30T03:44:16+08:00</updated>
+  <updated>2017-02-02T04:56:52+08:00</updated>
   <id>http://tech-home.github.io/</id>
   <author>
     <name><![CDATA[Gene]]></name>
@@ -12,6 +12,50 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Android UI设计概述]]></title>
+    <link href="http://tech-home.github.io/blog/20170202/"/>
+    <updated>2017-02-02T01:27:21+08:00</updated>
+    <id>http://tech-home.github.io/blog/android-uishe-ji-gai-shu</id>
+    <content type="html"><![CDATA[<h2>基本概念</h2>
+
+<ol>
+<li>ppi（pixels per inch）：屏幕每英寸所包含的像素，ppi数值越高，显示屏幕越细腻。</li>
+<li>dpi（dots per inch）：每英寸多少点，dpi数值越高，图片越细腻。</li>
+<li>px（    pixel像素）：屏幕像素,组成图片的基本单位。</li>
+<li>sp：字体大小单位，当在屏幕ppi＝160，字体大小为100%时，1sp＝1px，换算公式：<strong>sp*ppi/160=px</strong>。</li>
+<li>dp：元素长度单位，当在屏幕ppi＝160，1dp＝1px，换算公式：<strong>dp*ppi/160=px</strong>。</li>
+</ol>
+
+
+<!--more-->
+
+
+<h2>界面基本元素</h2>
+
+<p>我们选取720 * 1080这一尺寸为标准，在这尺寸下这些基本元素的大小。<br/>
+状态栏高度：50px。 <br/>
+导航栏高度：96px。 <br/>
+菜单栏高度：96px。<br/>
+启动图标：48 * 48dp。 <br/>
+操作栏图标：32 * 32dp 图标大小为24 * 24dp 切图尺寸为32 * 32dp。<br/>
+小图标：16 * 16dp 图标大小为12 * 12dp 切图尺寸为16 * 16dp。</p>
+
+<h2>不同屏幕适配</h2>
+
+<p><img src="../images/dp.png" alt="设备ppi" /> <br/>
+在mdpi的设备上，1dp＝1px，以mdpi为标准，不同屏幕的密度值比为：ldpi : mdpi : hdpi : xhdpi : xxhdpi = 0.75 : 1 : 1.5 : 2 : 3，UI作图时为了兼顾ios端，一般都会以ios6（750 ＊ 1334）为基础作图。编程实现时，会在其基础上除2，等到最终转化后的dp值。 <br/>
+<strong>除去低分辨率的屏幕（120dpi），所有元素都必须是可以被4整除的元件，在android界面中最小的间距为8dp</strong>。</p>
+
+<h2>常用尺寸</h2>
+
+<p>. 最小可点击区域的尺寸是48dp。 <br/>
+. 默认list的高度为48dp。 <br/>
+. 两个元素的最小间距为8dp。 <br/>
+. button的默认高度为40dp。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[几个常用的ADB命令]]></title>
@@ -54,7 +98,7 @@
 
 <h4>查看软件详情</h4>
 
-<blockquote><p><strong><em>adb shell dumpsys package &lt; packagename > -option</em></strong></p></blockquote>
+<blockquote><p><strong><em>adb shell dumpsys package &lt; packagename ></em></strong></p></blockquote>
 
 <p>根据指定包名，查看设备上某个包的具体信息。</p>
 

@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Tech Home Blog</title>
+  <title>Android UI设计概述 - Tech Home Blog</title>
   <meta name="author" content="Gene">
 
   
@@ -21,7 +21,7 @@ sp：字体大小单位，当在屏幕ppi＝160， &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://tech-home.github.io/">
+  <link rel="canonical" href="http://tech-home.github.io/blog/20170202/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Tech Home Blog" type="application/atom+xml">
@@ -64,15 +64,12 @@ sp：字体大小单位，当在屏幕ppi＝160， &hellip;">
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/20170202/">Android UI设计概述</a></h1>
+      <h1 class="entry-title">Android UI设计概述</h1>
     
     
       <p class="meta">
@@ -88,7 +85,7 @@ sp：字体大小单位，当在屏幕ppi＝160， &hellip;">
   </header>
 
 
-  <div class="entry-content"><h2>基本概念</h2>
+<div class="entry-content"><h2>基本概念</h2>
 
 <ol>
 <li>ppi（pixels per inch）：屏幕每英寸所包含的像素，ppi数值越高，显示屏幕越细腻。</li>
@@ -99,57 +96,100 @@ sp：字体大小单位，当在屏幕ppi＝160， &hellip;">
 </ol>
 
 
+<!--more-->
+
+
+<h2>界面基本元素</h2>
+
+<p>我们选取720 * 1080这一尺寸为标准，在这尺寸下这些基本元素的大小。<br/>
+状态栏高度：50px。 <br/>
+导航栏高度：96px。 <br/>
+菜单栏高度：96px。<br/>
+启动图标：48 * 48dp。 <br/>
+操作栏图标：32 * 32dp 图标大小为24 * 24dp 切图尺寸为32 * 32dp。<br/>
+小图标：16 * 16dp 图标大小为12 * 12dp 切图尺寸为16 * 16dp。</p>
+
+<h2>不同屏幕适配</h2>
+
+<p><img src="../images/dp.png" alt="设备ppi" /> <br/>
+在mdpi的设备上，1dp＝1px，以mdpi为标准，不同屏幕的密度值比为：ldpi : mdpi : hdpi : xhdpi : xxhdpi = 0.75 : 1 : 1.5 : 2 : 3，UI作图时为了兼顾ios端，一般都会以ios6（750 ＊ 1334）为基础作图。编程实现时，会在其基础上除2，等到最终转化后的dp值。 <br/>
+<strong>除去低分辨率的屏幕（120dpi），所有元素都必须是可以被4整除的元件，在android界面中最小的间距为8dp</strong>。</p>
+
+<h2>常用尺寸</h2>
+
+<p>. 最小可点击区域的尺寸是48dp。 <br/>
+. 默认list的高度为48dp。 <br/>
+. 两个元素的最小间距为8dp。 <br/>
+. button的默认高度为40dp。</p>
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/20170202/">Read on &rarr;</a>
-    </footer>
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Gene</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2017-02-02T01:27:21+08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>2</span><span class='date-suffix'>nd</span>, <span class='date-year'>2017</span></span> <span class='time'>1:27 am</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/android/'>android</a>
+  
+</span>
+
+
+    </p>
     
-      <h1 class="entry-title"><a href="/blog/20170130/">几个常用的ADB命令</a></h1>
+      <div class="sharing">
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+  <a class="addthis_button_sinaweibo"></a>
+  <a class="addthis_button_facebook"></a>
+  <a class="addthis_button_twitter"></a>
+  <a class="addthis_button_google_plusone_share"></a>
+  <a class="addthis_button_delicious"></a>
+  <a class="addthis_button_digg"></a>
+  <a class="addthis_button_reddit"></a>
+  <a class="addthis_button_compact">
     
+  </a><a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=undefined"></script>
+<!-- AddThis Button END -->
+<!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread" data-title="我的Octopress配置"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"Gene"};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = 'http://static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0]
+  || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- Duoshuo Comment END -->
     
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2017-01-30T02:06:09+08:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>2:06 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>  ADB全称Android Debug Bridge,在android开发中基本算得上是家喻户晓，我们经常会使用这个sdk中的工具来管理我们连接到电脑上的android设备。熟悉、掌握一些基本的adb命令，不仅可以提高我们的逼格，还可以提升我们的开发效率，在这，我总结一下本人在开发中会用到的一些adb命令。</p>
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/20170130/" title="Previous Post: 几个常用的ADB命令">&laquo; 几个常用的ADB命令</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/20170130/">Read on &rarr;</a>
-    </footer>
-  
 
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
 <aside class="sidebar">
   
     <section>
@@ -184,6 +224,7 @@ sp：字体大小单位，当在屏幕ppi＝160， &hellip;">
 
   
 </aside>
+
 
     </div>
   </div>
