@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android | Tech Home Blog]]></title>
   <link href="http://tech-home.github.io/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://tech-home.github.io/"/>
-  <updated>2017-05-11T01:19:38+08:00</updated>
+  <updated>2017-05-11T01:32:56+08:00</updated>
   <id>http://tech-home.github.io/</id>
   <author>
     <name><![CDATA[Gene]]></name>
@@ -21,6 +21,9 @@
     <content type="html"><![CDATA[<h2>简介</h2>
 
 <p>Databing是2015年Google IO大会带来的一门Data Binding技术，使用它可以很方便的从传统mvc框架切换到MVVM。Databing解决了我们android开发人员长期以来面对的数据与ui展示相关联的问题，想想我们以前所写的一大堆findviewbyid，很多时候都是在重复一样的代码。当然，除了databing还有其他的第三方框架也能解决这些问题，本文主要介绍一下如何在我们的项目中使用Databing技术。</p>
+
+<!--more-->
+
 
 <h2>准备</h2>
 
