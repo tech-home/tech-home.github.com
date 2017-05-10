@@ -4,7 +4,7 @@
   <title><![CDATA[Tech Home Blog]]></title>
   <link href="http://tech-home.github.io/atom.xml" rel="self"/>
   <link href="http://tech-home.github.io/"/>
-  <updated>2017-02-08T10:13:00+08:00</updated>
+  <updated>2017-05-02T23:19:58+08:00</updated>
   <id>http://tech-home.github.io/</id>
   <author>
     <name><![CDATA[Gene]]></name>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Retrofit源码分析]]></title>
+    <link href="http://tech-home.github.io/blog/20170209/"/>
+    <updated>2017-02-09T20:39:09+08:00</updated>
+    <id>http://tech-home.github.io/blog/retrofityuan-ma-fen-xi</id>
+    <content type="html"><![CDATA[<p>移动端开发，不可避免的需要和服务器端进行交互。特别是android开发的童鞋，开源的网络请求框架更是多种多样，在Android 2.2及以下版本，使用的HttpClient。在Android 2.3及以上版本，使用的HttpURLConnection。还有在这基础上Google自家开源的volley。以及开源大户Square开源的OkHttp、Retrofit。后者更是得到广大开发人员的青睐，本文所要讲述的也是这个框架的源码解析，目前作者所使用的源码版本为2.0.2。 <br/>
+简单的描述一下retrofit的使用方法<br/>
+<img src="http://tech-home.github.io/Users/fenxiang/Desktop/2.png" alt="" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[解放双手的神器－Vimium]]></title>
