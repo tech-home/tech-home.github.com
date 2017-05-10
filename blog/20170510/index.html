@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Retrofit源码分析 - Tech Home Blog</title>
+  <title>Android Databing 初探 - Tech Home Blog</title>
   <meta name="author" content="Gene">
 
   
-  <meta name="description" content="移动端开发，不可避免的需要和服务器端进行交互。特别是android开发的童鞋，开源的网络请求框架更是多种多样，在Android 2.2及以下版本，使用的HttpClient。在Android 2.3及以上版本，使用的HttpURLConnection。 &hellip;">
+  <meta name="description" content="简介 Databing是2015年Google IO大会带来的一门Data Binding技术，使用它可以很方便的从传统mvc框架切换到MVVM。Databing解决了我们android开发人员长期以来面对的数据与ui展示相关联的问题，想想我们以前所写的一大堆findviewbyid， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://tech-home.github.io/blog/20170209/">
+  <link rel="canonical" href="http://tech-home.github.io/blog/20170510/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Tech Home Blog" type="application/atom+xml">
@@ -66,7 +66,7 @@
   
   <header>
     
-      <h1 class="entry-title">Retrofit源码分析</h1>
+      <h1 class="entry-title">Android Databing 初探</h1>
     
     
       <p class="meta">
@@ -75,16 +75,89 @@
 
 
 
-<time class='entry-date' datetime='2017-02-09T20:39:09+08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>9</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>8:39 pm</span></time>
+<time class='entry-date' datetime='2017-05-10T23:32:42+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>10</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>11:32 pm</span></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>移动端开发，不可避免的需要和服务器端进行交互。特别是android开发的童鞋，开源的网络请求框架更是多种多样，在Android 2.2及以下版本，使用的HttpClient。在Android 2.3及以上版本，使用的HttpURLConnection。还有在这基础上Google自家开源的volley。以及开源大户Square开源的OkHttp、Retrofit。后者更是得到广大开发人员的青睐，本文所要讲述的也是这个框架的源码解析，目前作者所使用的源码版本为2.0.2。 <br/>
-简单的描述一下retrofit的使用方法<br/>
-<img src="/Users/fenxiang/Desktop/2.png" alt="" /></p>
+<div class="entry-content"><h2>简介</h2>
+
+<p>Databing是2015年Google IO大会带来的一门Data Binding技术，使用它可以很方便的从传统mvc框架切换到MVVM。Databing解决了我们android开发人员长期以来面对的数据与ui展示相关联的问题，想想我们以前所写的一大堆findviewbyid，很多时候都是在重复一样的代码。当然，除了databing还有其他的第三方框架也能解决这些问题，本文主要介绍一下如何在我们的项目中使用Databing技术。</p>
+
+<h2>准备</h2>
+
+<h3>Android Studio 版本</h3>
+
+<p><img src="../../images/version.png" alt="设备ppi" /></p>
+
+<h3>gradle 版本</h3>
+
+<p><img src="../../images/gradle.png" alt="设备ppi" /><br/>
+开启data bing 模块，修改对应的build.gradle文件，在android{}下添加以下代码:
+<img src="../../images/start.png" alt="设备ppi" /></p>
+
+<h2>开始</h2>
+
+<h3>声明节点</h3>
+
+<p>使用data bing之前我们的布局文件是这样的，它的根节点是一个viewgroup。</p>
+
+<p><img src="../../images/before.png" alt="设备ppi" /><br/>
+使用之后变成这样
+<img src="../../images/after.png" alt="设备ppi" /><br/>
+布局文件的根节点变成了layout，而且多一个data的节点，在data中声明一个variable标签，这个变量就是我们java代码实现与xml布局文件绑定的基础，格式如下：</p>
+
+<p><code>&lt;variable name="变量名称" type="完整类名称" /&gt;</code></p>
+
+<h3>定义对象实体</h3>
+
+<p>添加一个java bean account类，主要保存用户登录输入的信息，
+<img src="../../images/account.png" alt="设备ppi" /><br/>
+随后将我们的布局文件更改为：
+<img src="../../images/final.png" alt="设备ppi" /></p>
+
+<p>除了这样引入我们的bean对象外，我们还可以像java类导入一样导入我们所需要的实体，</p>
+
+<p><img src="../../images/dataimport.png" alt="设备ppi" /></p>
+
+<p>另外，在导入包的同时我们还可以对其设置别名，这样可以避免有两个名称一样的实体对象时，引入出现问题，</p>
+
+<blockquote><p><strong><em>注意</em></strong></p>
+
+<ul>
+<li><p>java.lang.*包下的类会自动被导入，所以我们使用的使用不需要指明完整的类名称，可以直接使用。</p></li>
+<li><p>data下面的variable变量，可以有多个。</p></li>
+</ul>
+</blockquote>
+
+<h3>数据绑定</h3>
+
+<p>回到我们loginactivity类，修改我们原有的oncreate方法，用DatabindingUtil.setContentView()来替换掉 setContentView()，创建一个 account 对象，通过binding.setUser(account) 实现绑定。</p>
+
+<h3>数据使用</h3>
+
+<p>xml布局文件使用变量的方式：</p>
+
+<p><img src="../../images/username.png" alt="设备ppi" /></p>
+
+<p>xml 的 UI 元素就可以直接使用我们在activity创建的account对象</p>
+
+<h2>其他</h2>
+
+<h3>使用类中的静态方法</h3>
+
+<p>添加一个简单的把名字转为大写的方法
+<img src="../../images/upper.png" alt="设备ppi" /><br/>
+在xml布局文件中使用
+<img src="../../images/use.png" alt="设备ppi" /></p>
+
+<h3>Null Coalescing 运算符</h3>
+
+<p><img src="../../images/ifnull.png" alt="设备ppi" /><br/>
+等价于：
+<img src="../../images/ifnull2.png" alt="设备ppi" /></p>
 </div>
 
 
@@ -100,8 +173,14 @@
 
 
 
-<time class='entry-date' datetime='2017-02-09T20:39:09+08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>9</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>8:39 pm</span></time>
+<time class='entry-date' datetime='2017-05-10T23:32:42+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>10</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>11:32 pm</span></time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/android/'>android</a>
+  
+</span>
 
 
     </p>
@@ -166,7 +245,7 @@ var duoshuoQuery = {short_name:"Gene"};
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/20170209/">Retrofit源码分析</a>
+        <a href="/blog/20170510/">Android Databing 初探</a>
       </li>
     
       <li class="post">
