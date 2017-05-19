@@ -9,7 +9,7 @@
   <meta name="author" content="Gene">
 
   
-  <meta name="description" content="简介 Databing是2015年Google IO大会带来的一门Data Binding技术，使用它可以很方便的从传统mvc框架切换到MVVM。Databing解决了我们android开发人员长期以来面对的数据与ui展示相关联的问题，想想我们以前所写的一大堆findviewbyid， &hellip;">
+  <meta name="description" content="系统状态栏和导航栏控制 隐藏状态栏、导航栏详情 如果使用这种方法，内容大小本身并不会发生变化，只是系统状态栏下的图标会隐藏掉，只要用户点击了屏幕上的状态栏或者导航栏，两者都会变成完全显示出来。使用这种方法的优势在于状态栏跟导航栏是存在的，只是把其内容隐藏了起来。在不用牺牲状态栏跟导航栏入口的情况下 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -63,6 +63,49 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/20170519/">Android系统Bar控制</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2017-05-19T21:19:54+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>19</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>9:19 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h4>系统状态栏和导航栏控制</h4>
+
+<h5>隐藏状态栏、导航栏详情</h5>
+
+<p>如果使用这种方法，内容大小本身并不会发生变化，只是系统状态栏下的图标会隐藏掉，只要用户点击了屏幕上的状态栏或者导航栏，两者都会变成完全显示出来。使用这种方法的优势在于状态栏跟导航栏是存在的，只是把其内容隐藏了起来。在不用牺牲状态栏跟导航栏入口的情况下，创建出体验更好的沉浸式应用。</p>
+
+<pre><code>    View decordView = getWindow().getDecorView();
+    int option = View.SYSTEM_UI_FLAG_LOW_PROFILE;
+    decordView.setSystemUiVisibility(option);
+</code></pre>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/20170519/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -235,6 +278,10 @@
 </section><section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/20170519/">Android系统Bar控制</a>
+      </li>
     
       <li class="post">
         <a href="/blog/20170510/">Android Databing 初探</a>

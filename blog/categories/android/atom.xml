@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android | Tech Home Blog]]></title>
   <link href="http://tech-home.github.io/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://tech-home.github.io/"/>
-  <updated>2017-05-11T01:32:56+08:00</updated>
+  <updated>2017-05-19T21:34:50+08:00</updated>
   <id>http://tech-home.github.io/</id>
   <author>
     <name><![CDATA[Gene]]></name>
@@ -12,6 +12,94 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Android系统Bar控制]]></title>
+    <link href="http://tech-home.github.io/blog/20170519/"/>
+    <updated>2017-05-19T21:19:54+08:00</updated>
+    <id>http://tech-home.github.io/blog/androidxi-tong-barkong-zhi</id>
+    <content type="html"><![CDATA[<h4>系统状态栏和导航栏控制</h4>
+
+<h5>隐藏状态栏、导航栏详情</h5>
+
+<p>如果使用这种方法，内容大小本身并不会发生变化，只是系统状态栏下的图标会隐藏掉，只要用户点击了屏幕上的状态栏或者导航栏，两者都会变成完全显示出来。使用这种方法的优势在于状态栏跟导航栏是存在的，只是把其内容隐藏了起来。在不用牺牲状态栏跟导航栏入口的情况下，创建出体验更好的沉浸式应用。</p>
+
+<pre><code>    View decordView = getWindow().getDecorView();
+    int option = View.SYSTEM_UI_FLAG_LOW_PROFILE;
+    decordView.setSystemUiVisibility(option);
+</code></pre>
+
+<!--more-->
+
+
+<p><em>注：decordView只是作为一个样例，事实上你可以使用任何的可见视图。</em></p>
+
+<p>默认的布局样式效果如下：</p>
+
+<p><img src="../../images/device-2017-05-19-193016.png" alt="设备ppi" /></p>
+
+<p>隐藏状态栏、导航栏详情后的效果如下：</p>
+
+<p><img src="../../images/device-2017-05-19-192855.png" alt="设备ppi" /></p>
+
+<p>setSystemUiVisibility 方法接收以下参数：</p>
+
+<ul>
+<li>SYSTEM_UI_FLAG_LOW_PROFILE                设置导航栏详情隐藏</li>
+<li>SYSTEM_UI_FLAG_LAYOUT_STABLE              设置布局内容固定，不随着状态栏伸缩进行变化</li>
+<li>SYSTEM_UI_FLAG_FULLSCREEN                 设置全屏，隐藏系统状态栏，导航栏。</li>
+<li>SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN          设置全屏，布局充满整个界面，但不隐藏状态栏、导栏等。</li>
+<li>SYSTEM_UI_FLAG_HIDE_NAVIGATION            设置隐藏系统导航栏</li>
+<li>SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION     不隐藏导航栏，布局内容填满导航栏部分，会出现折叠。</li>
+<li>SYSTEM_UI_FLAG_IMMERSIVE_STICKY           设置粘性沉浸式样式</li>
+<li>SYSTEM_UI_FLAG_IMMERSIVE                  设置成沉浸式样式</li>
+</ul>
+
+
+<p>第一个我们上面已经详细介绍过，接下来看看下面的三个对应的作用及效果</p>
+
+<h5>设置全屏</h5>
+
+<p>使用这个方法会重新调整内容布局的大小，同时隐藏起系统状态栏和导航栏</p>
+
+<pre><code>  View decordView = getWindow().getDecorView();
+  int option = View.SYSTEM_UI_FLAG_FULLSCREEN;
+  decordView.setSystemUiVisibility(option);
+</code></pre>
+
+<h5>设置导航栏隐藏</h5>
+
+<p>使用这个方法会重新调整内容布局的大小，同时隐藏起系统导航栏</p>
+
+<pre><code>  View decordView = getWindow().getDecorView();
+  int option = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+  decordView.setSystemUiVisibility(option);SYSTEM_UI_FLAG_HIDE_NAVIGATION
+</code></pre>
+
+<p>如果你想通过代码清除以上设置，恢复成系统原来的样子，可以同通过传入0清空之前所设置的标识，具体代码如下：</p>
+
+<pre><code>  View decordView = getWindow().getDecorView();
+  decordView.setSystemUiVisibility(0);
+</code></pre>
+
+<p>这样系统状态栏跟导航栏又会恢复到默认的样式。</p>
+
+<h5>设置沉浸式样式</h5>
+
+<p><img src="../../images/%E6%B2%89%E6%B5%B8%E5%BC%8F%E6%A0%B7%E5%BC%8F.png" alt="设备ppi" /></p>
+
+<p>取消当前设置，恢复系统原来的样子：</p>
+
+<p><img src="../../images/%E5%8F%96%E6%B6%88%E6%B2%89%E6%B5%B8%E5%BC%8F%E6%A0%B7%E5%BC%8F.png" alt="设备ppi" /></p>
+
+<h5>设置粘性沉浸式样式</h5>
+
+<p><img src="../../images/%E7%B2%98%E6%80%A7%E6%B2%89%E6%B5%B8%E5%BC%8F.png" alt="设备ppi" /></p>
+
+<p>如果想监听系统bar状态转化的过程，可以通过注册setOnSystemUiVisibilityChangeListener()
+<img src="../../images/listener.png" alt="设备ppi" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Android Databing 初探]]></title>
