@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Android Studio-使用java8特性 - Tech Home Blog</title>
+  <meta name="author" content="Gene">
+
+  
+  <meta name="description" content="以前 我们的项目开始于去年，在那时候刚好java8出来，android原生对java8的支持并不是很理想，为了在项目中使用java8的Lambda表达式等特性，就得引入第三方库retrolambda。接着，在我们已有的项目配置对应的插件依赖： 引入retrolambda插件， 开启java &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tech-home.github.io/blog/20170524/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Tech Home Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Tech Home Blog</a></h1>
+  
+    <h2>April showers bring May flowers</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://www.baidu.com/" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="tech-home.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Android Studio-使用java8特性</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2017-05-24T19:55:07+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>7:55 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>以前</h2>
+
+<p>我们的项目开始于去年，在那时候刚好java8出来，android原生对java8的支持并不是很理想，为了在项目中使用java8的Lambda表达式等特性，就得引入第三方库retrolambda。接着，在我们已有的项目配置对应的插件依赖：</p>
+
+<p><img src="../../images/dependence.png" alt="image" /></p>
+
+<p>引入retrolambda插件，</p>
+
+<p><img src="../../images/plugn.png" alt="image" /></p>
+
+<p>开启java 8的编译环境</p>
+
+<p><img src="../../images/jdk8.png" alt="image" /></p>
+
+<p>接下来就可以在我们的项目中愉快的使用java8中的Lambda表达式特性。</p>
+
+<!--more-->
+
+
+<h2>现在</h2>
+
+<p>随着android studio2.4 preview4的发布，（截止到目前为止，android studio最新版本为 3.0 canary）宣布android studio原生支持java 8。使得我们开发者使用起来更加的简单，现在，我们只需在项目中配置如下即可：</p>
+
+<p><img src="../../images/jdk8.png" alt="image" /></p>
+
+<h2>使用java8特性</h2>
+
+<p>当我们在开发一个android应用时，使用java8新特性是可选的，我们可以选择继续使用java7继续我们的项目，但是，你需要用jdk8来编译我们的代码。
+如下图所示，android studio 通过一个叫做desugared的默认工具链，在javac编译过后，将字节码转一步转化，从而实现java8特性的支持。</p>
+
+<p><img src="../../images/struct.png" alt="image" /></p>
+
+<p>如何开启android studio 原生支持java8，我们已经在上面说过了，但是，有以下几点需要注意的。</p>
+
+<ul>
+<li><p>android studio版本，必须是2.4 preview或以上。</p></li>
+<li><p>android plugin 必须是3.0.0-alphal或以上。</p></li>
+</ul>
+
+
+<h2>android studio 支持的java8特性与api</h2>
+
+<p>android studio 不完全支持java8特性，但是相信在接下来的android studio版本，会有越来越多的特性被as所支持，但是目前来说，我们需要根据项目所配置的minsdversion版本以及下面的表格，来确认对应的api或特性在我们的项目中目前是否可以使用。</p>
+
+<p><strong>目前android studio 所支持的java8 语言特性：</strong></p>
+
+<table border="1">
+<tr>
+<th>java8语言特性</th>
+<th>适合的minSdkVersion</th>
+</tr>
+<tr>
+<td>lambada 表达式</td>
+<td>所有 但是lambada序列化只支持lambada所捕获的值都是可序列化的。</td>
+</tr>
+<tr>
+<td>方法引用</td>
+<td>所有</td>
+</tr>
+<tr>
+<td>类型注解</td>
+<td>所有  但是  类型注解只适用于编译时，不支持运行时，同理，as支持所有Type在api24或以下，除了ElementType.TYPE_USE or 
+ElementType.TYPE_PARAMETER.</td>
+</tr>
+<tr>
+<td>默认和静态接口方法</td>
+<td>所有</td>
+</tr>
+<tr>
+<td>重复注解</td>
+<td>所有</td>
+</tr>
+<tr>
+<td>方法引用</td>
+<td>所有</td>
+</tr>
+</table>
+
+
+<p><br></p>
+
+<p><strong>目前android studio 所支持的java8 api</strong></p>
+
+<table border="1">
+<tr>
+<th>java8 api</th>
+<th>适合的minSdkVersion</th>
+</tr>
+<tr>
+<td>java.lang.annotation.Repeatable</td>
+<td>API level 24 or higher.</td>
+</tr>
+<tr>
+<td>AnnotatedElement.getAnnotationsByType(Class)</td>
+<td>API level 24 or higher.</td>
+</tr>
+<tr>
+<td>java.util.stream</td>
+<td>API level 24 or higher.</td>
+</tr>
+<tr>
+<td>java.lang.FunctionalInterface</td>
+<td>API level 24 or higher.</td>
+</tr>
+<tr>
+<td>java.lang.reflect.Method.isDefault()</td>
+<td>API level 24 or higher.</td>
+</tr>
+<tr>
+<td>java.util.function</td>
+<td>API level 24 or higher.</td>
+</tr>
+</table>
+
+
+<p><br></p>
+
+<h3>迁移到android studio 原生默认工具链</h3>
+
+<p>如果android studio 检测到你的项目使用了jack、retrolambda、或者dexguard，那么as将优先使用这些工具提供的支持java8的解决方案，而不会使用原生的默认工具链进行字节码转换。相对于使用as默认的工具链，以上所说的几种方案缺少部分功能的支持，所以，接下来我们要说下如果从这些第三方库中移植到as默认工具链上来，毕竟，这玩意是google亲生的娃，相信对于前几种方法，后者会得到更好的支持。</p>
+
+<h3>从jack迁移</h3>
+
+<p>jack工具链已经被废弃掉了，接下来我们也不会使用到它，如上所述，为了是我们的项目使用as自带的java8特性，我们需要先禁用掉jack，禁用jack的方法很简单，只需要在你module下的build.gradle文件，找到以下这段代码，去掉即可。</p>
+
+<pre><code> jackOptions {
+        enabled true
+        ...
+    }
+</code></pre>
+
+<h3>从Retrolambda迁移</h3>
+
+<p>相对于android studio 的默认工具链，Retrolambda缺少那些使用java8 语言特性的第三方库的支持。从Retrolambda迁移过来，需要找到你项目根目录下的build.gradle文件，找到以下代码并注释掉
+     classpath &lsquo;me.tatarka:gradle-retrolambda:<version_number>&rsquo;
+接着找到你module下的build.gradle文件，把下面这段代码去掉即可。</p>
+
+<pre><code>// 去掉插件的使用
+apply plugin: 'me.tatarka.retrolambda'
+...
+// Remove this block after migrating useful configurations.
+retrolambda {
+...
+// If you have arguments for the Java VM you want to keep,
+// move them to your project's gradle.properties file.
+jvmArgs '-Xmx2048m'
+}
+</code></pre>
+
+<h3>禁用java8特性</h3>
+
+<p>如果你实在不想在自个的项目中使用java8特性，你可以通过一下方法禁用它。
+找到项目中的gradle.properties 文件，添加下面这段代码：</p>
+
+<pre><code>android.enableDesugar=false
+</code></pre>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Gene</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2017-05-24T19:55:07+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>7:55 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/android/'>android</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+  <a class="addthis_button_sinaweibo"></a>
+  <a class="addthis_button_facebook"></a>
+  <a class="addthis_button_twitter"></a>
+  <a class="addthis_button_google_plusone_share"></a>
+  <a class="addthis_button_delicious"></a>
+  <a class="addthis_button_digg"></a>
+  <a class="addthis_button_reddit"></a>
+  <a class="addthis_button_compact">
+    
+  </a><a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=undefined"></script>
+<!-- AddThis Button END -->
+<!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread" data-title="我的Octopress配置"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"Gene"};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = 'http://static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0]
+  || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- Duoshuo Comment END -->
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/20170519/" title="Previous Post: Android系统Bar控制">&laquo; Android系统Bar控制</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+<h1>About Me</h1>
+<p>听说喜欢编程的人，运气一般都不会差。</p>
+<p>新浪微博: <a href="http://weibo.com/techold">@Gene</a><br/>
+   	Github:	<a href="https://github.com/tech-home">@Tech-home</a><br/>
+</p>
+</section>
+
+<section>
+<h1>公众号</h1><br/>
+<img src="../../../images/weixin.jpg" width="100dp" height="100dp" alt="">
+</section><section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/20170524/">Android Studio-使用java8特性</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/20170519/">Android系统Bar控制</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/20170510/">Android Databing 初探</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/20170206/">解放双手的神器－Vimium</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/20170202/">Android UI设计概述</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - Gene -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
